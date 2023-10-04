@@ -1,0 +1,50 @@
+- name: Install System Packages 1 (build-essential, cmake, pkg-config, pthread)
+  become: yes
+  pacman:
+    name: ["base-devel", "cmake", "pkg-config", "libpthread-stubs"]
+  tags:
+    - install
+    - neovim
+    - core
+
+- name: Install System Packages 2 (lua, unzip, libtool, libtool-bin, gettext)
+  become: yes
+  pacman:
+    name: ["lua", "unzip", "libtool", "gettext"]
+  tags:
+    - install
+    - neovim
+    - core
+
+- name: Install System Packages 3
+  become: yes
+  pacman:
+    name: ["picom", "curl", "htop", "go"]
+  tags:
+    - install
+    - core
+
+- name: Install System Packages 4
+  become: yes
+  pacman:
+    name: ["lsof", "i3", "ccache", "ninja"]
+    tags:
+      - install
+      - core
+
+- name: Install System Packages 5 (the rest)
+  become: yes
+  pacman:
+    name: ["python3-pip", "dconf-editor", "nvidia-settings", "pavucontrol", "moreutils"]
+    tags:
+      - install
+      - core
+
+- name: Install Clang
+  become: yes
+  pacman:
+    name: ["clang"]
+  tags:
+    - install
+    - neovim
+    - core

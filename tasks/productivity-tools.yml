@@ -1,0 +1,7 @@
+- name: Install packages
+  become: yes
+  pacman:
+    name: ["tmux", "wireshark-cli", "fzf", "gimp", "xclip", "tldr", "ripgrep" ]
+  tags:
+    - install
+    - productivity

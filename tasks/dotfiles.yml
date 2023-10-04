@@ -20,7 +20,9 @@
     - stow
 
 - name: Stow dotfiles
-  shell: cd $HOME/.dotfiles && sudo ./ubuntu
+  become: yes
+  become_user: arch-dave
+  shell: cd $HOME_DIR/.dotfiles && ./ubuntu
   tags:
     - install
     - dotfiles

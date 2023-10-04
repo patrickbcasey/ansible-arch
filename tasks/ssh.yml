@@ -35,10 +35,3 @@
     key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
   with_fileglob:
   - "{{ lookup('env', 'HOME') }}/.ssh/*.pub"
-  
-- name: Add github to known hosts
-  shell: https://github.com/patrickbcasey/ansible/blob/main/tasks/ssh.yml
-  tags:
-    - dotfiles
-    - install
-    - ssh

@@ -1,24 +1,16 @@
-- name: Setup sumneko lua lsp
+- name: Setup luals LSP
   ansible.builtin.git:
-    repo: "git@github.com:sumneko/lua-language-server.git"
+    repo: "git@github.com:LuaLS/lua-language-server"
     recursive: yes
-    dest: "{{ personal }}/sumneko"
+    dest: "{{ personal }}/lua-language-server"
   tags:
     - install
     - lsp
 
-- name: build the sumneko lsp
+- name: build the luals LSP
   ansible.builtin.shell:
-    cmd: ./compile/install.sh
-    chdir: "{{ personal }}/sumneko/3rd/luamake"
-  tags:
-    - install
-    - lsp
-
-- name: Finish it off with the built
-  ansible.builtin.shell:
-    cmd: ./3rd/luamake rebuild
-    chdir: "{{ personal }}/sumneko/"
+    cmd: ./make.sh
+    chdir: "{{ personal }}/lua-language-server"
   tags:
     - install
     - lsp

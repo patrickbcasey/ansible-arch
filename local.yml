@@ -1,5 +1,5 @@
 - hosts: localhost
-  vars: 
+  vars:
     source_key: "./.ssh/id_rsa"
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
     personal: "{{ lookup('env', 'HOME') }}/personal"
@@ -20,6 +20,7 @@
     - import_tasks: tasks/git-setup.yml
     - import_tasks: tasks/core-setup.yml
     - import_tasks: tasks/zsh-setup.yml
+    - import_tasks: tasks/lsp.yml
     - import_tasks: tasks/nvim-setup.yml
     - import_tasks: tasks/dotfiles.yml
     - import_tasks: tasks/productivity-tools.yml
